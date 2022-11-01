@@ -1,0 +1,15 @@
+// Font variables
+$Montserrat: "Montserrat", sans-serif;
+
+// Colors variables
+$color-salmon: #FF6060;
+$color-clearGrey: #F6F6F6;
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+// Mixins
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
