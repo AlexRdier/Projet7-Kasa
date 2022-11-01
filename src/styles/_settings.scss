@@ -13,3 +13,29 @@ $color-black: #000000;
     justify-content: center;
     align-items: center;
 }
+
+// Resets
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $color-white;
+    font-family: $Montserrat;
+}
+
+.main_content {
+        max-width: 1440px;
+        margin: 0 auto;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
