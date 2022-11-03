@@ -7,6 +7,7 @@ import { AppContext } from "../AppContext";
 import Footer from "../components/Footer";
 
 const Home = () => {
+  // Import contexte (data)
   const data = useContext(AppContext);
 
   return (

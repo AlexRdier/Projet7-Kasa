@@ -7,6 +7,7 @@ import dataJson from "./data/logements.json";
 const App = () => {
   const [data, setData] = useState([]);
 
+  // Récupére et stocke les datas
   useEffect(() => {
     const fetchData = async () => {
       setData(dataJson);
@@ -15,7 +16,9 @@ const App = () => {
   }, []);
 
   return (
+    // Configuration du routeur
     <HashRouter>
+      {/* Partager des données avec d'autres composants et pages grâce à useContext*/}
       <AppContext.Provider value={data}>
         <RoutesConfig />
       </AppContext.Provider>

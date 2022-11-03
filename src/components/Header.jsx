@@ -14,6 +14,7 @@ const Header = () => {
             <ul>
               <NavLink
                 to="/"
+                // Si le lien est actif, className = nav-active, sinon className est vide
                 className={(nav) => (nav.isActive ? "nav-active" : "")}
                 end
               >
@@ -21,6 +22,7 @@ const Header = () => {
               </NavLink>
               <NavLink
                 to="/about"
+                // Si le lien est actif, className = nav-active, sinon className est vide
                 className={(nav) => (nav.isActive ? "nav-active" : "")}
               >
                 <li>A Propos</li>

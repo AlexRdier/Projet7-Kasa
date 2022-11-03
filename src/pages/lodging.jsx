@@ -11,8 +11,11 @@ import Error404 from "./Error404";
 import Footer from "../components/Footer";
 
 const Lodging = () => {
+  // Import contexte (data)
   const data = useContext(AppContext);
+  // Stockage URL
   const urlId = useParams().id;
+  // Etat de base de données spécifiques
   const [lodgingData, setLodgingData] = useState({
     cover: "",
     description: "",
@@ -26,17 +29,23 @@ const Lodging = () => {
     title: "",
   });
 
+  // Stockage des données lodging correspondant
   useEffect(() => {
     const pushLodgingData = async () => {
+      // Recherche des données lodging correspondantes
       let found = data.find((o) => o.id === urlId);
+      // Push les données dans lodgingData
       await setLodgingData(found);
+      // Aller en haut de la page lors du re-renden
       window.scrollTo(0, 0);
     };
     pushLodgingData();
   });
+  // Gestion des erreurs si l'identifiant de lodging est incorrect
   if (lodgingData === undefined) {
     return <Error404 />;
   }
+  // Affiche un spinner de chargement si les données sont longues à stocker
   if (!lodgingData) {
     return (
       <div>
@@ -45,12 +54,14 @@ const Lodging = () => {
     );
   }
 
+  // Séparation du nom et du prénom de data
   let name = lodgingData.host.name.split(" ");
 
   return (
     <div className="lodging_page">
       <div className="main_content">
         <Header />
+        {/* Si loadgingData est correct, affiche ceci */}
         {lodgingData && (
           <section>
             <>
@@ -62,6 +73,7 @@ const Lodging = () => {
                     <p>{lodgingData.location}</p>
                   </div>
                   <div className="lodging_block_infos_item tagName">
+                    {/* Création d'un élément de balise pour chaque balise présente dans les data*/}
                     {lodgingData.tags.map((tag, index) => {
                       return <TagName tag={tag} key={index} />;
                     })}
@@ -78,7 +90,8 @@ const Lodging = () => {
                     </div>
                   </div>
                   <div className="lodging_block_infos_item rating">
-                    {lodgingData.rating === 1 && (
+                    {/* Création d'un affichage différent des étoiles pour chaque note d'hôte */}
+                    {lodgingData.rating == 1 && (
                       <>
                         <img src={starFull} alt="rating-stars" />
                         <img src={starEmpty} alt="rating-stars" />
@@ -87,7 +100,7 @@ const Lodging = () => {
                         <img src={starEmpty} alt="rating-stars" />
                       </>
                     )}
-                    {lodgingData.rating === 2 && (
+                    {lodgingData.rating == 2 && (
                       <>
                         <img src={starFull} alt="rating-stars" />
                         <img src={starFull} alt="rating-stars" />
@@ -96,7 +109,7 @@ const Lodging = () => {
                         <img src={starEmpty} alt="rating-stars" />
                       </>
                     )}
-                    {lodgingData.rating === 3 && (
+                    {lodgingData.rating == 3 && (
                       <>
                         <img src={starFull} alt="rating-stars" />
                         <img src={starFull} alt="rating-stars" />
@@ -105,7 +118,7 @@ const Lodging = () => {
                         <img src={starEmpty} alt="rating-stars" />
                       </>
                     )}
-                    {lodgingData.rating === 4 && (
+                    {lodgingData.rating == 4 && (
                       <>
                         <img src={starFull} alt="rating-stars" />
                         <img src={starFull} alt="rating-stars" />
@@ -114,7 +127,7 @@ const Lodging = () => {
                         <img src={starEmpty} alt="rating-stars" />
                       </>
                     )}
-                    {lodgingData.rating === 5 && (
+                    {lodgingData.rating == 5 && (
                       <>
                         <img src={starFull} alt="rating-stars" />
                         <img src={starFull} alt="rating-stars" />
@@ -126,6 +139,7 @@ const Lodging = () => {
                   </div>
                 </div>
               </div>
+              {/* Différenciez les composants className en fonction de l'emplacement de la page */}
               <div className="collapse_box-lodging">
                 <Collapse
                   label="Description"
@@ -135,6 +149,7 @@ const Lodging = () => {
                   label="Équipements"
                   content={
                     <ul>
+                      {/* Création d'un li pour chaque index de data dans Équipements */}
                       {lodgingData.equipments.map((equipement, index) => {
                         return <li key={index}>{equipement}</li>;
                       })}
