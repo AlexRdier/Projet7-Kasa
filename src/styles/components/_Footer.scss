@@ -24,6 +24,31 @@ footer {
     left: 0;
 }
 
+.about_page .footer_container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.lodging_page .footer_container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+// Breakpoint 1444px
+@media (max-width: 2150px) {
+    .about_page .footer_container {
+        position: relative;
+    }
+    .error_page .footer_container {
+        position: relative;
+    }
+    .lodging_page .footer_container {
+        position: relative;
+    }
+}
+
 // Breakpoint 768px
 @media (max-width: 768px) {
     .footer_container {

@@ -6,7 +6,7 @@ import Header from "../components/Header";
 
 const About = () => {
   return (
-    <div>
+    <div className="about_page">
       <div className="main_content">
         <Header />
         <Banner location="-about" />
